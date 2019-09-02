@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <app-header></app-header>
     <app-new-quote @quoteAdded="newQuote"></app-new-quote>
     <app-quote-grid
       :quotes="quotes"
@@ -16,6 +17,7 @@
 <script>
 import QuoteGrid from "./Components/QuoteGrid";
 import NewQuote from "./Components/NewQuote";
+import Header from "./Components/Header";
 
 export default {
   data() {
@@ -34,7 +36,8 @@ export default {
   },
   components: {
     appQuoteGrid: QuoteGrid,
-    appNewQuote: NewQuote
+    appNewQuote: NewQuote,
+    appHeader: Header
   }
 };
 </script>
