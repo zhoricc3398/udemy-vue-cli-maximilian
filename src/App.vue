@@ -9,9 +9,12 @@
         </button>
         <br /><br />
         <transition name="fade">
-          <div class="alert alert-info" v-if="show">This is some Info</div>
+          <div class="alert alert-info" v-show="show">This is some Info</div>
         </transition>
         <transition name="slide" type="animation">
+          <div class="alert alert-info" v-if="show">This is some Info</div>
+        </transition>
+        <transition name="fade" appear>
           <div class="alert alert-info" v-if="show">This is some Info</div>
         </transition>
       </div>
@@ -23,7 +26,7 @@
 export default {
   data() {
     return {
-      show: false
+      show: true
     };
   }
 };
