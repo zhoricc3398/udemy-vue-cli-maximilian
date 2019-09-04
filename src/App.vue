@@ -5,11 +5,11 @@
         <h1>Http</h1>
         <div class="form-group">
           <label>Username</label>
-          <input type="text" class="form-control" />
+          <input type="text" class="form-control" v-model="user.username" />
         </div>
         <div class="form-group">
           <label>Mail</label>
-          <input type="text" class="form-control" />
+          <input type="text" class="form-control" v-model="user.email" />
         </div>
         <button class="btn btn-primary" @click="submit">Submit</button>
       </div>
@@ -29,7 +29,16 @@ export default {
   },
   methods: {
     submit() {
-      console.log(this.user);
+      this.$http
+        .post("https://vuejs-http-2eaea.firebaseio.com/data.json", this.user)
+        .then(
+          response => {
+            console.log(response);
+          },
+          error => {
+            console.log(error);
+          }
+        );
     }
   }
 };
