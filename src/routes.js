@@ -3,12 +3,23 @@ import User from "./components/user/User";
 import UserDetail from "./components/user/UserDetail";
 import UserEdit from "./components/user/UserEdit";
 import UserStart from "./components/user/UserStart";
+import Header from "./components/Header";
 
 export const routes = [
-  { path: "", component: Home, name: "home" },
+  {
+    path: "",
+    name: "home",
+    components: {
+      default: Home,
+      "header-top": Header
+    }
+  },
   {
     path: "/user",
-    component: User,
+    components: {
+      default: User,
+      "header-bottom": Header
+    },
     children: [
       { path: "", component: UserStart },
       { path: ":id", component: UserDetail },
