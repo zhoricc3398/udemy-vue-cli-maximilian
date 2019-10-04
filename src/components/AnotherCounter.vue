@@ -6,14 +6,11 @@
 </template>
 
 <script>
-    export default {
-        methods: {
-            increment() {
-                this.$store.commit("increment");
-            },
-            decrement() {
-                this.$store.commit("decrement");
-            }
-        }
-    };
+import { mapActions } from "vuex";
+
+export default {
+  methods: {
+    ...mapActions(["increment", "decrement"])
+  }
+};
 </script>
